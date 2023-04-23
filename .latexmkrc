@@ -1,10 +1,12 @@
+# PDF generate method
+# - 4: $lualatex
+# - 5: $xelatex
 $pdf_mode = 4;
-# 4 represents using $lualatex
-# 5 represents using $xelatex
 
-# Specifies the command line for the LaTeX processing program of when the lualatex program is called for.
-$lualatex = "lualatex --synctex=1 --interaction=nonstopmode --file-line-error --shell-escape %O %S";
-$xelatex = "xelatex -synctex=1 -interaction=nonstopmode -file-line-error -shell-escape %O %S";
+# Add common patterns for tex engines.
+set_tex_cmds("--synctex=1 --interaction=nonstopmode --file-line-error --shell-escape %O %S");
+# $lualatex = "lualatex [...]";
+# $xelatex = "xelatex [...]";
 
 # The Biber processing program
 $biber =  "biber %O %S";
@@ -16,3 +18,9 @@ $out_dir = ".build";
 
 @default_files = ("main.tex");
 @default_excluded_files = ();
+
+# Files to clean.
+$clean_ext = 'bbl glo gls hd loa run.xml thm xdv';
+
+# Always try to embed fonts, ignoring licensing flags, etc.
+$xdvipdfmx = 'xdvipdfmx -E -o %D %O %S';

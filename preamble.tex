@@ -3,19 +3,23 @@
 \usepackage[british]{babel}
 
 \usepackage{graphicx}
-\graphicspath{ {./assets/images/} }
+\graphicspath{ {./images/} }
 
 \usepackage[inkscapepath=./.build/svg-inkscape/]{svg}
-\svgpath{ {./assets/images/} }
+\svgpath{ {./images/} }
+
+\usepackage{subcaption}
 
 % Warning: csquotes should be loaded after fvextra, to avoid a warning from the lineno package.
 % Solution: The fvextra package is loaded by minted, so minted should be loaded before csquotes.
 \usepackage[outputdir=./.build/]{minted}
 
+\usepackage{enumitem}
+
 \usepackage{tabularray}
 
 % https://tex.stackexchange.com/questions/229355/algorithm-algorithmic-algorithmicx-algorithm2e-algpseudocode-confused
-\usepackage{algpseudocodex}
+\usepackage[beginLComment=\#~, endLComment=~]{algpseudocodex}
 \usepackage{algorithm}  % https://ctan.org/pkg/algorithms
 
 \usepackage{csquotes}
